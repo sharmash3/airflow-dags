@@ -28,6 +28,7 @@ with DAG(
         "spark.kubernetes.authenticate.driver.serviceAccountName": "spark",
         "spark.kubernetes.driver.pod.name": "spark-driver-transaction-filter",
         "spark.kubernetes.container.image.pullPolicy": "IfNotPresent"
-    }
+    },
+        verbose=True,
 )
 
