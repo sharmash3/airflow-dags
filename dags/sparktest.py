@@ -16,7 +16,7 @@ with DAG(
    spark_job = SparkSubmitOperator(
     task_id='transaction_filter',
     application='/opt/spark-apps/transaction-filter.jar',
-    main_class='com.example.TransactionFilter',  # <-- fixed here
+    class_name='com.example.TransactionFilter',  # <-- fixed here
     application_args=['/opt/spark-apps/transactions.csv'],
     conn_id='spark_default',
     verbose=True,
