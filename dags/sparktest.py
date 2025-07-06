@@ -8,7 +8,7 @@ default_args = {
 
 with DAG(
     dag_id='run_transaction_filter',
-    schedule=None,  # Changed from schedule_interval=None
+    schedule=None,
     default_args=default_args,
     catchup=False
 ) as dag:
@@ -18,8 +18,15 @@ with DAG(
         application='/opt/spark-apps/transaction-filter.jar',
         java_class='com.example.TransactionFilter',
         application_args=['/opt/spark-apps/transactions.csv'],
-        conn_id='spark_default',  # Ensure this connection is defined in Airflow
-        executor_memory='1g',
-        driver_memory='1g',
+        conn_id='spark_default',  # Make sure this connection is set up properly
         verbose=True,
+        conf={
+            "spark.master": "k8s://https://kubernetes.default.svc",  # Adjust if needed
+            "spark.submit.deployMode": "cluster",
+            "spark.kubernetes.container.image": "apache/spark:3.5.3",
+            "spark.kubernetes.namespace": "default",
+            "spark.kubernetes.authenticate.driver.serviceAccountName": "spark",
+            "spark.kubernetes.driver.pod.name": "spark-driver-transaction-filter",
+            "spark.kubernetes.container.image.pullPolicy": "IfNotPresent"
+        }
     )
