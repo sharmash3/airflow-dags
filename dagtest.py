@@ -23,7 +23,7 @@ with DAG(
     conf={
         "spark.master": "k8s://https://kubernetes.default.svc",
         "spark.submit.deployMode": "cluster",
-        "spark.kubernetes.container.image": "apache/spark:3.5.1",
+        "spark.kubernetes.container.image": "transaction-filter:2.0",
         "spark.kubernetes.namespace": "default",
         "spark.kubernetes.authenticate.driver.serviceAccountName": "spark",
         "spark.kubernetes.driver.pod.name": "spark-driver-transaction-filter",
