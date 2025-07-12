@@ -15,15 +15,15 @@ with DAG(
 
    spark_job = SparkSubmitOperator(
     task_id='transaction_filter',
-    application='/opt/spark-apps/transaction-filter.jar',
+    application='opt/spark/jars/transaction-filter-1.0.jar',
     java_class='com.example.TransactionFilter',  # <-- fixed here
-    application_args=['/opt/spark-apps/transactions.csv'],
+    application_args=['/opt/spark/data/transactions.csv'],
     conn_id='spark_default',
     verbose=True,
     conf={
         "spark.master": "k8s://https://kubernetes.default.svc",
         "spark.submit.deployMode": "cluster",
-        "spark.kubernetes.container.image": "apache/spark:3.5.3",
+        "spark.kubernetes.container.image": "apache/spark:3.5.1",
         "spark.kubernetes.namespace": "default",
         "spark.kubernetes.authenticate.driver.serviceAccountName": "spark",
         "spark.kubernetes.driver.pod.name": "spark-driver-transaction-filter",
