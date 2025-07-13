@@ -11,7 +11,8 @@ spec:
   mainClass: com.example.TransactionFilter
   mainApplicationFile: "local:///opt/spark/jars/transaction-filter-2.0.jar"
   arguments:
-    - "/opt/spark/data/transactions.csv"
+    - "gs://transactions-data-2025/input/transactions.csv"
+    - "gs://transactions-data-2025/output/transactionsfiltered.csv"
   sparkVersion: "3.5.1"
   restartPolicy:
     type: Never
