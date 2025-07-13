@@ -13,7 +13,7 @@ with DAG(
     transaction_filter = SparkKubernetesOperator(
         task_id="submit_transaction_filter",
         namespace="default",
-        application_file="/opt/airflow/sparkapps/transaction-filter.yaml",
+        application_file="sparkapps/transaction-filter.yaml",
         do_xcom_push=False,
     )
 
