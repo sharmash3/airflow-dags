@@ -5,7 +5,7 @@ from datetime import datetime
 with DAG(
     dag_id="transaction_filter_spark_k8s",
     start_date=datetime(2025, 7, 13),
-    schedule_interval=None,
+    schedule=None,  # ← updated from schedule_interval
     catchup=False,
     tags=["spark", "kubernetes", "transaction"],
 ) as dag:
