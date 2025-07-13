@@ -6,7 +6,7 @@ metadata:
 spec:
   type: Scala
   mode: cluster
-  image: "transaction-filter:2.0"
+  image: "gcr.io/restroapp-459914/transaction-filter:2.0"
   imagePullPolicy: IfNotPresent
   mainClass: com.example.TransactionFilter
   mainApplicationFile: "local:///opt/spark/jars/transaction-filter-1.0.jar"
