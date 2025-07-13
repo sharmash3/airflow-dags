@@ -9,7 +9,7 @@ spec:
   image: "gcr.io/restroapp-459914/transaction-filter:2.0"
   imagePullPolicy: IfNotPresent
   mainClass: com.example.TransactionFilter
-  mainApplicationFile: "local:///opt/spark/jars/transaction-filter-1.0.jar"
+  mainApplicationFile: "local:///opt/spark/jars/transaction-filter-2.0.jar"
   arguments:
     - "/opt/spark/data/transactions.csv"
   sparkVersion: "3.5.1"
